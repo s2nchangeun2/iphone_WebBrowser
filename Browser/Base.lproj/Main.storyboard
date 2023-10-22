@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="ViewController" customModule="Browser" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="FSU-DH-Oty">
+                                <rect key="frame" x="0.0" y="118" width="393" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="gQA-qY-xsM"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Google"/>
+                                    <segment title="Instagram"/>
+                                    <segment title="YouTube"/>
+                                    <segment title="Netflix"/>
+                                </segments>
+                                <connections>
+                                    <action selector="bookMarkAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="cOg-cm-ehx"/>
+                                </connections>
+                            </segmentedControl>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="웹 사이트 검색 또는 입력" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="LVq-mB-dEK">
+                                <rect key="frame" x="0.0" y="157" width="393" height="44"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="URL" returnKeyType="go"/>
+                                <connections>
+                                    <action selector="bookMarkAction:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="FoZ-lt-r5M"/>
+                                    <action selector="textFieldShouldReturn:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="BZH-e5-nEx"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="gch-SM-xLr"/>
+                                </connections>
+                            </textField>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G28-LW-ZpO">
+                                <rect key="frame" x="0.0" y="774" width="393" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="h2d-es-rk0"/>
+                                    <barButtonItem systemItem="rewind" id="Axa-uY-5Vl">
+                                        <connections>
+                                            <action selector="goBackAction:" destination="BYZ-38-t0r" id="gVX-sH-zuu"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="jGH-bf-Z25"/>
+                                    <barButtonItem systemItem="fastForward" id="NSW-KS-0zl">
+                                        <connections>
+                                            <action selector="goForwardAction:" destination="BYZ-38-t0r" id="E5Q-Ig-mpX"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Xph-9J-f0R"/>
+                                    <barButtonItem systemItem="stop" id="xnV-Yf-xwI">
+                                        <connections>
+                                            <action selector="stopLoadingAction:" destination="BYZ-38-t0r" id="y9P-BK-26D"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="rCI-EX-Ft2"/>
+                                    <barButtonItem systemItem="refresh" id="ond-ts-Gn4">
+                                        <connections>
+                                            <action selector="reloadAction:" destination="BYZ-38-t0r" id="IeP-PK-7Zx"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="rWb-tq-Ih4"/>
+                                </items>
+                            </toolbar>
+                            <wkWebView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hhZ-vR-p0Y">
+                                <rect key="frame" x="0.0" y="203" width="393" height="571"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="982-eB-tRV">
+                                <rect key="frame" x="178" y="408" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="FSU-DH-Oty" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="59" id="02Z-na-laq"/>
+                            <constraint firstItem="FSU-DH-Oty" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="540-rw-3Dc"/>
+                            <constraint firstItem="FSU-DH-Oty" firstAttribute="trailing" secondItem="LVq-mB-dEK" secondAttribute="trailing" id="BLt-Ks-Ghn"/>
+                            <constraint firstItem="FSU-DH-Oty" firstAttribute="leading" secondItem="LVq-mB-dEK" secondAttribute="leading" id="DvA-eH-dZA"/>
+                            <constraint firstItem="LVq-mB-dEK" firstAttribute="top" secondItem="FSU-DH-Oty" secondAttribute="bottom" constant="8" id="cka-Es-VdI"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="LVq-mB-dEK" secondAttribute="bottom" constant="617" id="hOn-8c-nCt"/>
+                            <constraint firstItem="FSU-DH-Oty" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lur-yv-Q2g"/>
+                        </constraints>
+                    </view>
+                    <value key="contentSizeForViewInPopover" type="size" width="393" height="852"/>
+                    <connections>
+                        <outlet property="bookMarkSegmentedControl" destination="FSU-DH-Oty" id="NeQ-Bn-W7U"/>
+                        <outlet property="mainWebView" destination="hhZ-vR-p0Y" id="tHu-0k-sNB"/>
+                        <outlet property="spinningActivityIndicatorView" destination="982-eB-tRV" id="gak-ls-SdR"/>
+                        <outlet property="urlTextField" destination="LVq-mB-dEK" id="SAz-Wv-2hE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="64.885496183206101" y="-34.507042253521128"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
